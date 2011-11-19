@@ -1,3 +1,8 @@
 name: AntiNetherDupe
 version: 1.0
 main: me.spowney.antinetherdupe.AntiNetherDupe
+commands:
+  setnetherspawn:
+    description: sets the nether spawn point for the anti nether dupe plugin
+    usage: |
+           /setnetherspawn
