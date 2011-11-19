@@ -15,7 +15,7 @@ public static AntiNetherDupe plugin;
 	
 	public void onPlayerTeleport(PlayerTeleportEvent e)
 	{
-		if(e.getFrom().getWorld().getEnvironment() == Environment.NETHER)
+		if(e.getFrom().getWorld().getEnvironment() == Environment.NETHER && e.getTo().getWorld().getEnvironment() != Environment.NETHER)
 		{
 			e.setCancelled(true);
 			e.getPlayer().sendMessage("Teleporting from the nether is currently disabled. You have been teleported to nether spawn instead");
