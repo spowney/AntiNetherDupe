@@ -18,6 +18,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class AntiNetherDupe extends JavaPlugin{
 	
 	private final AntiNetherDupePlayerListener playerListener = new AntiNetherDupePlayerListener(this);
+	private final AntiNetherDupeBlockListener blockListener = new AntiNetherDupeBlockListener(this);
 
 	@Override
 	public void onEnable() {
@@ -25,6 +26,7 @@ public class AntiNetherDupe extends JavaPlugin{
 		PluginManager plman = s.getPluginManager();
 		
 		plman.registerEvent(Event.Type.PLAYER_TELEPORT, playerListener, Event.Priority.Normal, this);
+		plman.registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Normal, this);
 		
 		
 	}
