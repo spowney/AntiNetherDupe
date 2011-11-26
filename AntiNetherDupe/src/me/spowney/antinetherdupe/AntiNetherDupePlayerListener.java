@@ -23,7 +23,14 @@ public static AntiNetherDupe plugin;
 			e.getPlayer().teleport(e.getPlayer().getWorld().getSpawnLocation());		
 		}
 		
-		//add similar expression for the end when building with 1.0 bukkit
+		if(e.getFrom().getWorld().getEnvironment() == Environment.THE_END && e.getTo().getWorld().getEnvironment() != Environment.THE_END)
+		{
+			e.setCancelled(true);
+			e.getPlayer().sendMessage(ChatColor.RED + "Teleporting from the end to another world is disabled. You have been teleported to the end portal instead");
+			e.getPlayer().teleport(e.getPlayer().getWorld().getSpawnLocation());		
+		}
+		
+		
 	}
 	
 

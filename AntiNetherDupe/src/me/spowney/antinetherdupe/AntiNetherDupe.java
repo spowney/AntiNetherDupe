@@ -59,6 +59,30 @@ public class AntiNetherDupe extends JavaPlugin{
 	                		else
 	                		{
 	                			player.sendMessage(ChatColor.RED + "You are not in the nether");
+	                			return true;
+	                		}
+	                		
+	                	}
+
+	                
+	                	
+	                }
+	                
+	                else if (commandName.equalsIgnoreCase("setendspawn")) 
+	                {
+	                	if(player.isOp() || player.hasPermission("endspawn.set"))
+	                	{
+	                		if(player.getWorld().getEnvironment() == Environment.THE_END)
+	                		{
+	                			Block block = player.getLocation().getBlock();
+	                			player.getWorld().setSpawnLocation(block.getX(), block.getY(), block.getZ());
+	                			player.sendMessage(ChatColor.RED + "the End Spawn point set");
+	                			return true;
+	                		}
+	                		else
+	                		{
+	                			player.sendMessage(ChatColor.RED + "You are not in the end");
+	                			return true;
 	                		}
 	                		
 	                	}
